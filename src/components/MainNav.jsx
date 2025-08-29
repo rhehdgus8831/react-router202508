@@ -5,7 +5,6 @@ import styles from './MainNav.module.scss';
 const MainNav = () => {
 
     const {nav, navLink, active} = styles;
-
     return (
         <nav className={nav}>
             <Link to="/" className={navLink}>Home</Link>
@@ -14,5 +13,4 @@ const MainNav = () => {
         </nav>
     );
 };
-
 export default MainNav;
