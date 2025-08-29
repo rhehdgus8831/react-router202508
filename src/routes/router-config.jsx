@@ -1,33 +1,36 @@
-// 라우터 설정
+import {createBrowserRouter} from 'react-router-dom';
 import IndexPage from '../pages/IndexPage.jsx';
 import BlogPage from '../pages/BlogPage.jsx';
 import AboutPage from '../pages/AboutPage.jsx';
-import {createBrowserRouter} from 'react-router-dom';
 import RootLayout from '../layouts/RootLayout.jsx';
 import ErrorPage from '../pages/ErrorPage.jsx';
+import BlogPostDetailPage from '../pages/BlogPostDetailPage.jsx';
 
+// 라우터 설정
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <RootLayout/>,
+        element: <RootLayout />,
         // custom error page 설정
-        errorElement: <ErrorPage/>,
-        // children -> Layout의 Outlet 부분을 뭘로 바뀔지 설정
+        errorElement: <ErrorPage />,
+        // children -> Layout의 Outlet부분을 뭘로 바꿀지를 설정
         children: [
             {
-                // index: true,
-                path: '',
-                element: <IndexPage/>,
+                index: true,
+                element: <IndexPage />
             },
             {
                 path: 'blog',
-                element: <BlogPage/>,
+                element: <BlogPage />
+            },
+            {
+                path: 'blog/:postId',
+                element: <BlogPostDetailPage />
             },
             {
                 path: 'about',
-                element: <AboutPage/>,
+                element: <AboutPage />
             },
         ]
     }
-
 ]);
