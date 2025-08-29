@@ -31,7 +31,7 @@ const BlogPage = () => {
             <div className={styles.blog}>
 
                 <BlogFilter/>
-                <BlogSideBar/>
+
 
                 <div className={styles.grid}>
                     {posts

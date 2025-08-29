@@ -5,6 +5,7 @@ import AboutPage from '../pages/AboutPage.jsx';
 import RootLayout from '../layouts/RootLayout.jsx';
 import ErrorPage from '../pages/ErrorPage.jsx';
 import BlogPostDetailPage from '../pages/BlogPostDetailPage.jsx';
+import BlogLayout from '../layouts/BlogLayout.jsx';
 
 // 라우터 설정
 export const router = createBrowserRouter([
@@ -19,14 +20,22 @@ export const router = createBrowserRouter([
                 index: true,
                 element: <IndexPage />
             },
+
             {
                 path: 'blog',
-                element: <BlogPage />
+                element: <BlogLayout />,
+                children: [
+                    {
+                        index: true,
+                        element: <BlogPage />
+                    },
+                    {
+                        path: ':postId',
+                        element: <BlogPostDetailPage />
+                    },
+                ]
             },
-            {
-                path: 'blog/:postId',
-                element: <BlogPostDetailPage />
-            },
+
             {
                 path: 'about',
                 element: <AboutPage />
